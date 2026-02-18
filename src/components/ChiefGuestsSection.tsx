@@ -38,15 +38,12 @@ const patrons = [
     image: sureshKumar,
   },
   { name: "Dr. A. Gopichand", role: "Vice-Principal, SCET", image: aGopichand },
+  {
+    name: "Dr. P. Srinivasulu",
+    role: "Professor & HoD - CSE",
+    image: pSrinivasulu,
+  },
 ];
-
-const convenor = {
-  name: "Dr. P. Srinivasulu",
-  role: "Professor & HoD – CSE",
-  image: pSrinivasulu,
-};
-
-const management = [...chiefPatrons, ...patrons, convenor];
 
 const PersonCard = ({
   name,
@@ -88,7 +85,7 @@ const ChiefGuestsSection = () => (
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-display font-bold gradient-text mb-12"
       >
-        Chief Guest & Management
+        Chief Guest
       </motion.h2>
 
       {/* Chief Guest */}
@@ -112,7 +109,7 @@ const ChiefGuestsSection = () => (
         </div>
       </motion.div>
 
-      {/* Management */}
+      {/* Patrons */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -120,21 +117,32 @@ const ChiefGuestsSection = () => (
         transition={{ delay: 0.1 }}
         className="mb-12"
       >
-        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-6">
-          Management
+        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-4">
+          Chief Patrons
         </p>
-        <div className="flex flex-wrap justify-center gap-8">
-          {management.map((p) => (
+        <div className="flex flex-wrap justify-center gap-8 mb-8">
+          {chiefPatrons.map((p) => (
             <PersonCard
               key={p.name}
               name={p.name}
               role={p.role}
               image={p.image}
-              glow={
-                p.name === convenor.name
-                  ? "neon-border box-glow-purple"
-                  : "neon-border-purple"
-              }
+              glow="neon-border-purple"
+            />
+          ))}
+        </div>
+
+        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-4">
+          Patrons
+        </p>
+        <div className="flex flex-wrap justify-center gap-8">
+          {patrons.map((p) => (
+            <PersonCard
+              key={p.name}
+              name={p.name}
+              role={p.role}
+              image={p.image}
+              glow="neon-border box-glow-purple"
             />
           ))}
         </div>

@@ -36,20 +36,20 @@ const facultyGroups = [
   {
     title: "Mentors & Judges",
     members: [
+      "Dr. P. Srinivasu Rao",
+      "Dr. M. Vijaya Raju",
+      "Dr. Srinivas",
       "Dr. N. Tulasi Raju",
       "Dr. Madhu Kumar",
-      "Mr. M. Satyanarana",
-      "Mrs. I. Praveena",
       "Dr. A. M. D. Kumar",
       "Dr. T. Gopinath",
+      "Dr. T. Kesava Rao",
+      "Mr. M. Satyanarana",
+      "Mrs. I. Praveena",
       "Mr. Raghava Rao",
       "Mrs. G. Archana",
-      "Dr. T. Kesava Rao",
-      "Dr. M. Vijaya Raju",
       "Mr. B. S. Vara Prasad",
       "Mrs. K. Sireesha",
-      "Dr. P. Srinivasu Rao",
-      "Dr. Srinivas",
       "Mr. Yugandhar",
       "Mr. K. Ch. Prabhakar Rao",
     ],
@@ -92,9 +92,9 @@ const CoordinatorsSection = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-display font-bold gradient-text mb-14"
+        className="text-3xl md:text-4xl font-display font-bold gradient-text mb-14 uppercase"
       >
-        Organizing Committee
+        Coordinators
       </motion.h2>
 
       {/* ================= STUDENT COORDINATORS ================= */}

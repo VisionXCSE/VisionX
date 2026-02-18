@@ -6,7 +6,12 @@ import heroBg from "@/assets/hero-bg.jpg";
 const targetDate = new Date("2026-03-06T09:00:00").getTime();
 
 const HeroSection = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     const tick = () => {
@@ -62,7 +67,8 @@ const HeroSection = () => {
           transition={{ delay: 0.25 }}
           className="text-xs md:text-sm text-muted-foreground font-body mb-1"
         >
-          Seetharampuram, Narsapur, West Godavari District, Andhra Pradesh – 534275
+          Seetharampuram, Narsapuram, West Godavari District, Andhra Pradesh –
+          534280
         </motion.p>
         <motion.p
           initial={{ opacity: 0 }}
@@ -106,17 +112,22 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
-          className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground mb-3"
+          className="mb-3"
         >
-          <span className="flex items-center gap-2">
-            <CalendarDays size={16} className="text-primary" /> March 6 & 7, 2026
-          </span>
-          <span className="flex items-center gap-2">
-            <Clock size={16} className="text-primary" /> Start: March 6 – 9:00 AM
-          </span>
-          <span className="flex items-center gap-2">
-            <Clock size={16} className="text-secondary" /> End: March 7 – Evening
-          </span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary/20 border border-primary/40 text-primary font-heading font-bold text-xl md:text-2xl text-glow-blue">
+            <CalendarDays size={20} className="text-primary" />
+            March 6 & 7, 2026
+          </div>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground">
+            <span className="flex items-center gap-2">
+              <Clock size={16} className="text-primary" /> Start: March 6 -
+              9:00 AM
+            </span>
+            <span className="flex items-center gap-2">
+              <Clock size={16} className="text-secondary" /> End: March 7 -
+              Evening
+            </span>
+          </div>
         </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
@@ -125,7 +136,7 @@ const HeroSection = () => {
           className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-8"
         >
           <MapPin size={16} className="text-secondary" />
-          Swarnandhra College of Engineering & Technology, Narsapur
+          Swarnandhra College of Engineering & Technology, Narsapuram
         </motion.p>
 
         {/* Countdown */}
@@ -136,7 +147,10 @@ const HeroSection = () => {
           className="flex justify-center gap-3 md:gap-5 mb-8"
         >
           {units.map((u) => (
-            <div key={u.label} className="neon-border rounded-lg px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[90px] bg-card/50 backdrop-blur-sm">
+            <div
+              key={u.label}
+              className="neon-border rounded-lg px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[90px] bg-card/50 backdrop-blur-sm"
+            >
               <div className="text-2xl md:text-4xl font-display font-bold text-primary text-glow-blue">
                 {String(u.value).padStart(2, "0")}
               </div>
@@ -169,14 +183,14 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Limited Slots */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
           className="text-xs md:text-sm font-heading text-neon-gold text-glow-blue animate-pulse"
         >
           ⚡ Limited Slots Available – Register Before February 28, 2026
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

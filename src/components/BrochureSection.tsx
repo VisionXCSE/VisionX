@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 
-const brochurePreviewUrl = "/brochure.pdf#page=1&view=FitH&toolbar=0&navpanes=0&scrollbar=0";
+const brochureImageUrl = "/brochure.jpg";
 
 const BrochureSection = () => (
   <section id="brochure" className="section-padding bg-card/30">
@@ -22,11 +22,10 @@ const BrochureSection = () => (
         transition={{ delay: 0.2 }}
         className="neon-border rounded-xl overflow-hidden bg-card/40 mb-8"
       >
-        <iframe
-          src={brochurePreviewUrl}
-          title="Event Brochure First Page"
-          className="w-full h-[500px] md:h-[700px]"
-          style={{ border: "none" }}
+        <img
+          src={brochureImageUrl}
+          alt="Event Brochure"
+          className="w-full h-auto max-h-[700px] object-contain"
         />
       </motion.div>
 
@@ -37,7 +36,7 @@ const BrochureSection = () => (
         transition={{ delay: 0.3 }}
       >
         <a
-          href="/brochure.pdf"
+          href={brochureImageUrl}
           download
           className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground box-glow-blue hover:scale-105 transition-transform"
         >
