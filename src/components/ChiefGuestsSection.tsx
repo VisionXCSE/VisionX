@@ -21,12 +21,12 @@ const chiefPatrons = [
   },
   {
     name: "Sri K V Swamy",
-    role: "Director, SCET",
+    role: "Treasurer, SCET",
     image: kvswamy,
   },
   {
     name: "Sri A Srihari",
-    role: "Treasurer, SCET",
+    role: "Director, SCET",
     image: asrihari,
   },
 ];
@@ -37,7 +37,7 @@ const patrons = [
     role: "Principal, SCET",
     image: sureshKumar,
   },
-  { name: "Dr. A. Gopichand", role: "SCET", image: aGopichand },
+  { name: "Dr. A. Gopichand", role: "Vice-Principal, SCET", image: aGopichand },
 ];
 
 const convenor = {
