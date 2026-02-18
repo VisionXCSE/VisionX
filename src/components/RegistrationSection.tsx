@@ -76,12 +76,14 @@ const RegistrationSection = () => (
         transition={{ delay: 0.4 }}
         className="flex flex-wrap justify-center gap-4"
       >
-        <a
-          href="#register"
-          className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground box-glow-blue hover:scale-105 transition-transform"
-        >
-          <ExternalLink size={16} /> Register Now
-        </a>
+       <a
+  href="https://forms.gle/gDXf3rBgRHLqzFDC6"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground box-glow-blue hover:scale-105 transition-transform"
+>
+  <ExternalLink size={16} /> Register Now
+</a>
         <a
           href="/brochure.pdf"
           download
