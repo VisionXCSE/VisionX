@@ -6,12 +6,13 @@ import asrihari from "./guests/a-srihari.jpg";
 import sureshKumar from "./guests/suresh-kumar.jpg";
 import aGopichand from "./guests/a-gopichand.jpg";
 import pSrinivasulu from "./guests/p-srinivasulu.jpg";
+import minish from "./guests/minish.jpg";
 
-const chiefGuest = {
-  name: "Prof. CSRK Prasad",
-  title: "Hon'ble Vice Chancellor, JNTUK, Kakinada",
-  image: profCsrkPrasad,
-};
+// const chiefGuest = {
+//   name: "Prof. CSRK Prasad",
+//   title: "Hon'ble Vice Chancellor, JNTUK, Kakinada",
+//   image: profCsrkPrasad,
+// };
 
 const chiefPatrons = [
   {
@@ -28,6 +29,12 @@ const chiefPatrons = [
     name: "Sri A Srihari",
     role: "Director, SCET",
     image: asrihari,
+  },
+  {
+    name: "Minish Kumar Mucharla",
+    role: "Aqua Tech Foundation",
+    image: minish,
+    topLabel: "Aqua Tech Foundation",
   },
 ];
 
@@ -51,16 +58,27 @@ const PersonCard = ({
   image,
   glow = "neon-border",
   size = "w-24 h-24",
+  topLabel,
 }: {
   name: string;
   role: string;
   image: string;
   glow?: string;
   size?: string;
+  topLabel?: string;
 }) => (
   <div className="flex flex-col items-center max-w-[200px]">
+    {/* ✅ Label ABOVE image (normal flow, no absolute) */}
+    <div className="h-5 mb-2 flex items-center justify-center">
+      {topLabel && (
+        <p className="text-[11px] font-semibold text-cyan-400 text-center">
+          {topLabel}
+        </p>
+      )}
+    </div>
     <div
       className={`${size} rounded-full ${glow} bg-card/60 overflow-hidden mb-3`}
+      // className={`${size} relative rounded-full ${glow} bg-card/60 overflow-hidden mb-3`}
     >
       <img
         src={image}
@@ -85,11 +103,11 @@ const ChiefGuestsSection = () => (
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-display font-bold gradient-text mb-12"
       >
-        Chief Guest
+        Guests
       </motion.h2>
 
       {/* Chief Guest */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -107,7 +125,7 @@ const ChiefGuestsSection = () => (
             size="w-32 h-32"
           />
         </div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Patrons */}
       <motion.div
@@ -128,6 +146,7 @@ const ChiefGuestsSection = () => (
               role={p.role}
               image={p.image}
               glow="neon-border-purple"
+              topLabel={p.topLabel}
             />
           ))}
         </div>

@@ -6,6 +6,7 @@ const studentCoordinators = [
   { name: "B. Naga Sri Devi", phone: "9603978716" },
   { name: "S. Prasanthi", phone: "8309508460" },
   { name: "T. Uday", phone: "9390529394" },
+  { name: "T. Yamini", phone: "9110595464" },
   { name: "K. Tarjani", phone: "9948290585" },
 ];
 
@@ -108,7 +109,7 @@ const CoordinatorsSection = () => (
           Student Coordinators
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
           {studentCoordinators.map((c, i) => (
             <motion.div
               key={c.name}

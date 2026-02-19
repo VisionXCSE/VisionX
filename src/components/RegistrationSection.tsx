@@ -39,7 +39,7 @@ const RegistrationSection = () => (
             Hackathon Entry
           </p>
           <p className="text-2xl font-display font-bold text-secondary text-glow-purple">
-            ₹300{" "}
+            ₹500{" "}
             <span className="text-sm font-heading text-muted-foreground font-normal">
               per head
             </span>
