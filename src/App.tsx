@@ -8,6 +8,7 @@ import PageLoader from "./components/PageLoader";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CursorParticles from "./components/CursorParticles";
+import CyberCursor from "./components/CyberCursor";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,8 @@ function App() {
 
   return (
     <>
-      <CursorParticles />
+      {/* <CursorParticles /> */}
+      <CyberCursor />
       {loading && <PageLoader />}
 
       {!loading && (
