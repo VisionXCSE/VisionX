@@ -46,7 +46,7 @@ const patrons = [
 const conveners = [
   {
     name: "Dr. P. Srinivasulu",
-    role: "Professor & HoD - CSE",
+    role: "Professor & HoD - CSE-1",
     image: pSrinivasulu,
   },
   {
@@ -56,12 +56,12 @@ const conveners = [
   },
   {
     name: "Dr. B. P. N. Madhu Kumar",
-    role: "Professor & HoD",
+    role: "Professor & HoD - CSE-2",
     image: bpnmadhukumar, // replace with correct image if available
   },
   {
     name: "Dr. T. Murali Mohan",
-    role: "Professor",
+    role: "Professor & HoD - CS-BS",
     image: tmuralimohan, // replace with correct image if available
   },
 ];
@@ -98,9 +98,7 @@ const PersonCard = ({
       {name}
     </h4>
 
-    <p className="text-xs text-muted-foreground mt-1 text-center">
-      {role}
-    </p>
+    <p className="text-xs text-muted-foreground mt-1 text-center">{role}</p>
   </div>
 );
 
