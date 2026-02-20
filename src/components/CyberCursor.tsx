@@ -49,12 +49,12 @@ const CyberCursor = () => {
 
       {/* Main Cursor Core */}
       <div
-        className="pointer-events-none fixed z-[10000] w-4 h-4 border border-cyan-400 rounded-sm"
+        className="pointer-events-none fixed z-[10000] w-4 h-4 border border-cyan-400 rounded-sm opacity-40"
         style={{
           left: pixels.length ? pixels[pixels.length - 1].x : 0,
           top: pixels.length ? pixels[pixels.length - 1].y : 0,
           transform: "translate(-50%, -50%)",
-          boxShadow: "0 0 15px #00ffff",
+          boxShadow: "0 0 8px #00ffff",
         }}
       />
     </>
