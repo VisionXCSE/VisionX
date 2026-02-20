@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import profCsrkPrasad from "./guests/prof-csrk-prasad.jpg";
 import kvsatyanarayana from "./guests/k-v-satyanarayana.jpg";
 import kvswamy from "./guests/k-v-swamy.jpg";
 import asrihari from "./guests/a-srihari.jpg";
@@ -7,13 +6,10 @@ import sureshKumar from "./guests/suresh-kumar.jpg";
 import aGopichand from "./guests/a-gopichand.jpg";
 import pSrinivasulu from "./guests/p-srinivasulu.jpg";
 import minish from "./guests/minish.jpg";
+import bpnmadhukumar from "./guests/bpnmadhukumar.jpg";
+import tmuralimohan from "./guests/tmuralimohan.jpg";
 
-// const chiefGuest = {
-//   name: "Prof. CSRK Prasad",
-//   title: "Hon'ble Vice Chancellor, JNTUK, Kakinada",
-//   image: profCsrkPrasad,
-// };
-
+/* ================= CHIEF PATRONS ================= */
 const chiefPatrons = [
   {
     name: "Sri K V Satyanarayana",
@@ -30,55 +26,63 @@ const chiefPatrons = [
     role: "Director, SCET",
     image: asrihari,
   },
+];
+
+/* ================= PATRONS ================= */
+const patrons = [
   {
-    name: "Minish Kumar Mucharla",
-    role: "Aqua Tech Foundation",
-    image: minish,
-    topLabel: "Aqua Tech Foundation",
+    name: "Dr. S. Suresh Kumar",
+    role: "Principal",
+    image: sureshKumar,
+  },
+  {
+    name: "Dr. A. Gopichand",
+    role: "Vice-Principal",
+    image: aGopichand,
   },
 ];
 
-const patrons = [
-  {
-    name: "Dr. Suresh Kumar",
-    role: "Principal, SCET",
-    image: sureshKumar,
-  },
-  { name: "Dr. A. Gopichand", role: "Vice-Principal, SCET", image: aGopichand },
+/* ================= CONVENERS ================= */
+const conveners = [
   {
     name: "Dr. P. Srinivasulu",
     role: "Professor & HoD - CSE",
     image: pSrinivasulu,
   },
+  {
+    name: "Minish Kumar Mucharla",
+    role: "Aqua Tech Foundation",
+    image: minish,
+  },
+  {
+    name: "Dr. B. P. N. Madhu Kumar",
+    role: "Professor & HoD",
+    image: bpnmadhukumar, // replace with correct image if available
+  },
+  {
+    name: "Dr. T. Murali Mohan",
+    role: "Professor",
+    image: tmuralimohan, // replace with correct image if available
+  },
 ];
 
+/* ================= CARD COMPONENT ================= */
 const PersonCard = ({
   name,
   role,
   image,
   glow = "neon-border",
   size = "w-24 h-24",
-  topLabel,
 }: {
   name: string;
   role: string;
   image: string;
   glow?: string;
   size?: string;
-  topLabel?: string;
 }) => (
   <div className="flex flex-col items-center max-w-[200px]">
-    {/* ✅ Label ABOVE image (normal flow, no absolute) */}
-    <div className="h-5 mb-2 flex items-center justify-center">
-      {topLabel && (
-        <p className="text-[11px] font-semibold text-cyan-400 text-center">
-          {topLabel}
-        </p>
-      )}
-    </div>
     <div
       className={`${size} rounded-full ${glow} bg-card/60 overflow-hidden mb-3`}
-      // className={`${size} relative rounded-full ${glow} bg-card/60 overflow-hidden mb-3`}
     >
       <img
         src={image}
@@ -89,56 +93,37 @@ const PersonCard = ({
         }}
       />
     </div>
-    <h4 className="font-heading font-bold text-foreground text-sm">{name}</h4>
-    <p className="text-xs text-muted-foreground mt-1 text-center">{role}</p>
+
+    <h4 className="font-heading font-bold text-foreground text-sm text-center">
+      {name}
+    </h4>
+
+    <p className="text-xs text-muted-foreground mt-1 text-center">
+      {role}
+    </p>
   </div>
 );
 
+/* ================= MAIN SECTION ================= */
 const ChiefGuestsSection = () => (
   <section id="guests" className="section-padding">
-    <div className="max-w-5xl mx-auto text-center">
+    <div className="max-w-6xl mx-auto text-center">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="text-3xl md:text-4xl font-display font-bold gradient-text mb-12"
       >
-        Guests
+        Patrons & Conveners
       </motion.h2>
 
-      {/* Chief Guest */}
-      {/* <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
-        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-4">
-          Chief Guest
-        </p>
-        <div className="flex justify-center">
-          <PersonCard
-            name={chiefGuest.name}
-            role={chiefGuest.title}
-            image={chiefGuest.image}
-            glow="neon-border box-glow-blue"
-            size="w-32 h-32"
-          />
-        </div>
-      </motion.div> */}
-
-      {/* Patrons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-        className="mb-12"
-      >
-        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-4">
+      {/* ================= CHIEF PATRONS ================= */}
+      <div className="mb-12">
+        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-6">
           Chief Patrons
         </p>
-        <div className="flex flex-wrap justify-center gap-8 mb-8">
+
+        <div className="flex flex-wrap justify-center gap-8">
           {chiefPatrons.map((p) => (
             <PersonCard
               key={p.name}
@@ -146,14 +131,17 @@ const ChiefGuestsSection = () => (
               role={p.role}
               image={p.image}
               glow="neon-border-purple"
-              topLabel={p.topLabel}
             />
           ))}
         </div>
+      </div>
 
-        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-4">
+      {/* ================= PATRONS ================= */}
+      <div className="mb-12">
+        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-6">
           Patrons
         </p>
+
         <div className="flex flex-wrap justify-center gap-8">
           {patrons.map((p) => (
             <PersonCard
@@ -161,11 +149,30 @@ const ChiefGuestsSection = () => (
               name={p.name}
               role={p.role}
               image={p.image}
-              glow="neon-border box-glow-purple"
+              glow="neon-border"
             />
           ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* ================= CONVENERS ================= */}
+      <div>
+        <p className="text-xs font-heading text-muted-foreground uppercase tracking-widest mb-6">
+          Conveners
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-8">
+          {conveners.map((p) => (
+            <PersonCard
+              key={p.name}
+              name={p.name}
+              role={p.role}
+              image={p.image}
+              glow="neon-border box-glow-blue"
+            />
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 );
