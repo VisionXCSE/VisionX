@@ -20,10 +20,10 @@ const ContactSection = () => (
         className="flex flex-col items-center gap-4 mb-8"
       >
         <a
-          href="mailto:visionx2026.scet@gmail.com"
+          href="mailto:visionx2k26.scet@gmail.com"
           className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors text-sm font-heading"
         >
-          <Mail size={18} /> visionx2026.scet@gmail.com
+          <Mail size={18} /> visionx2k26.scet@gmail.com
         </a>
       </motion.div>
       <motion.div
@@ -42,12 +42,12 @@ const ContactSection = () => (
           {
             icon: Linkedin,
             label: "LinkedIn",
-            href: "https://www.linkedin.com/in/cse-scet/",
+            href: "https://www.linkedin.com/in/scet-cse-department/",
           },
           {
             icon: Facebook,
             label: "Facebook",
-            href: "https://www.facebook.com/people/Cse-Scet/pfbid0esH8kMus9gttdGVMx5wbfMho2Weyu2toGD4TNT55Q61DUwv1d5925pXakn43SAmHl/",
+            href: "https://www.facebook.com/people/SCET-CSE-Department/61588629863276/",
           },
         ].map((s) => (
           <a

@@ -35,12 +35,13 @@ const CyberCursor = () => {
       {pixels.map((p) => (
         <span
           key={p.id}
-          className="pointer-events-none fixed z-[9999] w-2 h-2 bg-cyan-400"
+          className="pointer-events-none fixed z-[9999] w-2 h-2 bg-cyan-400 opacity-50"
           style={{
             left: p.x,
             top: p.y,
             transform: "translate(-50%, -50%)",
-            boxShadow: "0 0 6px #00ffff, 0 0 12px #00ffff, 0 0 18px #00ffff",
+            // boxShadow: "0 0 6px #00ffff, 0 0 12px #00ffff, 0 0 18px #00ffff",
+            boxShadow: "0 0 4px #00ffff, 0 0 8px #00ffff",
             animation: "pixelFade 0.4s linear forwards",
           }}
         />

@@ -115,7 +115,7 @@ const RegistrationSection = () => (
         className="flex flex-wrap justify-center gap-4"
       >
         <a
-          href="https://forms.gle/gDXf3rBgRHLqzFDC6"
+          href="https://forms.gle/rmYbmRybCixqMGKG7"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-heading font-semibold text-sm bg-primary text-primary-foreground box-glow-blue hover:scale-105 transition-transform"
