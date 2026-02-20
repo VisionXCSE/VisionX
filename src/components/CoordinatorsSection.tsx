@@ -5,9 +5,12 @@ const studentCoordinators = [
   { name: "A. Divya Sri", phone: "8500219989" },
   { name: "B. Naga Sri Devi", phone: "9603978716" },
   { name: "S. Prasanthi", phone: "8309508460" },
-  { name: "T. Uday", phone: "9390529394" },
+  // { name: "T. Uday", phone: "9390529394" },
   { name: "T. Yamini", phone: "9110595464" },
   { name: "K. Tarjani", phone: "9948290585" },
+  { name: "Bh. Divya Teja", phone: "9502988448" },
+  { name: "B. Mohan", phone: "7997102207" },
+  { name: "G. Dinesh Kumar", phone: "9010155129" },
 ];
 
 const facultyGroups = [
@@ -109,7 +112,7 @@ const CoordinatorsSection = () => (
           Student Coordinators
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
           {studentCoordinators.map((c, i) => (
             <motion.div
               key={c.name}

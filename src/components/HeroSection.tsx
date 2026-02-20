@@ -120,8 +120,8 @@ const HeroSection = () => {
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-4 md:gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
-              <Clock size={16} className="text-primary" /> Start: March 6 -
-              9:00 AM
+              <Clock size={16} className="text-primary" /> Start: March 6 - 9:00
+              AM
             </span>
             <span className="flex items-center gap-2">
               <Clock size={16} className="text-secondary" /> End: March 7 -
