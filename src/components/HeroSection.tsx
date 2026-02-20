@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CalendarDays, MapPin, Clock } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBgVd from "@/assets/hero-bg.mp4";
 
 const targetDate = new Date("2026-03-06T09:00:00").getTime();
 
@@ -37,10 +38,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBg})` }}
-      />
+      /> */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroBgVd} type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-background/75 bg-grid-pattern" />
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-20">
