@@ -6,8 +6,8 @@ import sureshKumar from "./guests/suresh-kumar.jpg";
 import aGopichand from "./guests/a-gopichand.jpg";
 import pSrinivasulu from "./guests/p-srinivasulu.jpg";
 import minish from "./guests/minish.jpg";
-import bpnmadhukumar from "./guests/bpnmadhukumar.jpg";
 import tmuralimohan from "./guests/tmuralimohan.jpg";
+import bpnmadhukumar from "./guests/bpnmadhukumar.jpg";
 
 /* ================= CHIEF PATRONS ================= */
 const chiefPatrons = [
