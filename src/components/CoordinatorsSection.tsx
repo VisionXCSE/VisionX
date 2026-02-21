@@ -7,10 +7,10 @@ const studentCoordinators = [
   { name: "S. Prasanthi", phone: "8309508460" },
   // { name: "T. Uday", phone: "9390529394" },
   { name: "T. Yamini", phone: "9110595464" },
-  { name: "K. Tarjani", phone: "9948290585" },
   { name: "Bh. Divya Teja", phone: "9502988448" },
   { name: "B. Mohan", phone: "7997102207" },
   { name: "G. Dinesh Kumar", phone: "9010155129" },
+  { name: "K. Tarjani", phone: "9948290585" },
 ];
 
 const facultyGroups = [

@@ -45,24 +45,24 @@ const patrons = [
 /* ================= CONVENERS ================= */
 const conveners = [
   {
-    name: "Dr. P. Srinivasulu",
-    role: "Professor & HoD - CSE-1",
-    image: pSrinivasulu,
-  },
-  {
     name: "Minish Kumar Mucharla",
     role: "Aqua Tech Foundation",
     image: minish,
   },
   {
+    name: "Dr. P. Srinivasulu",
+    role: "Professor & HoD - CSE-1",
+    image: pSrinivasulu,
+  },
+  {
     name: "Dr. B. P. N. Madhu Kumar",
     role: "Professor & HoD - CSE-2",
-    image: bpnmadhukumar, // replace with correct image if available
+    image: bpnmadhukumar,
   },
   {
     name: "Dr. T. Murali Mohan",
     role: "Professor & HoD - CS-BS",
-    image: tmuralimohan, // replace with correct image if available
+    image: tmuralimohan,
   },
 ];
 
