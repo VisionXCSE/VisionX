@@ -4,8 +4,9 @@ const PageLoader = () => {
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ duration: 0.8, delay: 1.2 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black gap-6"
     >
       {/* Logo / Title */}

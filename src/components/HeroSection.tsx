@@ -6,7 +6,10 @@ import heroBgVd from "@/assets/hero-bg.mp4";
 
 const targetDate = new Date("2026-03-06T09:00:00").getTime();
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onVideoReady: () => void;
+}
+const HeroSection = ({ onVideoReady }: HeroSectionProps) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -47,6 +50,11 @@ const HeroSection = () => {
         muted
         loop
         playsInline
+        preload="auto"
+        onLoadedData={() => {
+          console.log("VIDEO LOADED");
+          onVideoReady();
+        }}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={heroBgVd} type="video/mp4" />

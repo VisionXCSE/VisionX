@@ -12,19 +12,20 @@ import NotFound from "./pages/NotFound";
 // import CyberCursor from "./cursors/CyberCursor";
 // import StarCursor from "./cursors/StarCursor";
 import SmoothTrailCursor from "./cursors/SmoothTrailCursor";
+import { AnimatePresence } from "framer-motion";
 
 const queryClient = new QueryClient();
 
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1800); // loader duration
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1800); // loader duration
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
@@ -37,23 +38,24 @@ function App() {
         level={6}
       /> */}
       {/* <StarCursor /> */}
-      <SmoothTrailCursor />
-      {loading && <PageLoader />}
+      <AnimatePresence>{loading && <PageLoader />}</AnimatePresence>
 
-      {!loading && (
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
-        </QueryClientProvider>
-      )}
+      <QueryClientProvider client={queryClient}>
+        <SmoothTrailCursor />
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/"
+                element={<Index onVideoReady={() => setLoading(false)} />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
     </>
   );
 }

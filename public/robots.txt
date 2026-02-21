@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://vision-x-iota.vercel.app/sitemap.xml

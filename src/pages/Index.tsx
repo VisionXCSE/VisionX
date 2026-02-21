@@ -4,17 +4,21 @@ import AboutSection from "@/components/AboutSection";
 import ChiefGuestsSection from "@/components/ChiefGuestsSection";
 import BrochureSection from "@/components/BrochureSection";
 import TracksSection from "@/components/TracksSection";
-import ProcessSection from "@/components/ProcessSection";
+// import ProcessSection from "@/components/ProcessSection";
 import RewardsSection from "@/components/RewardsSection";
 import RegistrationSection from "@/components/RegistrationSection";
 import CoordinatorsSection from "@/components/CoordinatorsSection";
 import ContactSection from "@/components/ContactSection";
-import SponsorsSection from "@/components/SponsorsSection";
+// import SponsorsSection from "@/components/SponsorsSection";
 
-const Index = () => (
+interface IndexProps {
+  onVideoReady: () => void;
+}
+
+const Index = ({ onVideoReady }: IndexProps) => (
   <div className="min-h-screen bg-background">
     <Navbar />
-    <HeroSection />
+    <HeroSection onVideoReady={onVideoReady} />
     <AboutSection />
     <ChiefGuestsSection />
     <BrochureSection />
