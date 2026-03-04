@@ -1,8 +1,3 @@
 {
-  "rewrites": [
-    {
-      "source": "/visionx/(.*)",
-      "destination": "/$1"
-    }
-  ]
+  "routes": [{ "src": "/visionx/(.*)", "dest": "/" }]
 }
