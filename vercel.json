@@ -1,12 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/visionx"
-    },
-    {
-      "src": "/visionx/(.*)",
-      "dest": "/visionx/$1"
+      "source": "/visionx/:path*",
+      "destination": "/:path*"
     }
   ]
 }
