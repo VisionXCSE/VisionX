@@ -1,9 +1,17 @@
 {
+  // "redirects": [
+  //   {
+  //     "source": "/",
+  //     "destination": "/visionx",
+  //     "permanent": false
+  //   }
+  // ],
+
   "redirects": [
     {
-      "source": "/",
-      "destination": "/visionx",
-      "permanent": false
+      "source": "/(.*)",
+      "destination": "https://www.swarnandhra.ac.in/visionx/",
+      "permanent": true
     }
   ],
   "rewrites": [
