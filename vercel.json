@@ -1,12 +1,4 @@
 {
-  // "redirects": [
-  //   {
-  //     "source": "/",
-  //     "destination": "/visionx",
-  //     "permanent": false
-  //   }
-  // ],
-
   "redirects": [
     {
       "source": "/(.*)",
