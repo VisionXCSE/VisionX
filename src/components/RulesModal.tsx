@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useEffect } from "react";
 
 interface RulesModalProps {
   open: boolean;
@@ -7,6 +8,33 @@ interface RulesModalProps {
 }
 
 const RulesModal = ({ open, onClose }: RulesModalProps) => {
+  useEffect(() => {
+    if (!open) return;
+
+    const handleBack = () => {
+      onClose();
+    };
+
+    window.history.pushState(null, "", window.location.href);
+    window.addEventListener("popstate", handleBack);
+
+    return () => {
+      window.removeEventListener("popstate", handleBack);
+    };
+  }, [open]);
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKey);
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+    };
+  }, []);
   return (
     <AnimatePresence>
       {open && (
@@ -27,9 +55,10 @@ const RulesModal = ({ open, onClose }: RulesModalProps) => {
             exit={{ opacity: 0, scale: 0.95, y: 30 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+            onClick={onClose}
           >
             <div
-              className="bg-background border border-border rounded-xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-8 relative"
+              className="bg-background border border-border rounded-xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-8 relative shadow-[0_0_40px_rgba(0,255,255,0.1)]"
               onClick={(e) => e.stopPropagation()}
             >
               {/* CLOSE BUTTON */}
@@ -53,7 +82,7 @@ const RulesModal = ({ open, onClose }: RulesModalProps) => {
                   <ul className="list-disc pl-5 space-y-1">
                     <li>Duration: 36 Continuous Hours</li>
                     <li>Mode: Offline + GitHub Submission</li>
-                    <li>Team Size: 2–4 Members</li>
+                    <li>Team Size: 2–6 Members</li>
                     <li>Registration through official website only</li>
                   </ul>
                 </section>

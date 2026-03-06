@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import scetLogo from "@/assets/scet-logo.jpg";
 
 interface NavbarProps {
@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Guests", href: "#guests" },
   { label: "Brochure", href: "#brochure" },
   { label: "Tracks", href: "#tracks" },
-  // { label: "Process", href: "#process" },
+  { label: "Process", href: "#process" },
   { label: "Prizes", href: "#prizes" },
   { label: "Contact", href: "#contact" },
 ];
@@ -20,6 +20,15 @@ const navLinks = [
 const Navbar = ({ onOpenRules }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const scrollToSection = (href: string) => {
+    const target = document.querySelector(href);
+    if (!target) return;
+
+    const navOffset = 72;
+    const top = target.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -35,15 +44,15 @@ const Navbar = ({ onOpenRules }: NavbarProps) => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 h-14 md:h-16 flex items-center relative">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 h-14 md:h-16 flex items-center relative">
         {/* LEFT LOGO */}
         <a href="#" className="flex items-center gap-2 z-10">
           <img
             src={scetLogo}
             alt="SCET Logo"
-            className="w-10 h-10 rounded-full object-cover"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
           />
-          <span className="font-display text-lg font-bold text-primary text-glow-blue">
+          <span className="hidden min-[360px]:inline font-display text-base sm:text-lg font-bold text-primary text-glow-blue">
             VISION-X
           </span>
         </a>
@@ -62,17 +71,18 @@ const Navbar = ({ onOpenRules }: NavbarProps) => {
         </div>
 
         {/* RIGHT SIDE BUTTONS (Always Visible) */}
-        <div className="flex items-center gap-2 md:gap-4 ml-auto">
-          <a
+        <div className="flex items-center gap-1.5 sm:gap-2 md:gap-4 ml-auto">
+          <button
             onClick={onOpenRules}
-            className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg border border-border text-xs md:text-sm font-heading text-muted-foreground hover:text-primary hover:border-primary transition-colors"
+            type="button"
+            className="px-2 sm:px-3 md:px-4 py-1.5 md:py-2 rounded-lg border border-border text-[11px] sm:text-xs md:text-sm font-heading text-muted-foreground hover:text-primary hover:border-primary transition-colors cursor-pointer active:scale-95"
           >
             Rules
-          </a>
+          </button>
 
           <a
             href="#register"
-            className="px-3 md:px-5 py-1.5 md:py-2 rounded-lg bg-primary text-primary-foreground text-xs md:text-sm font-heading font-semibold hover:scale-105 transition-transform"
+            className="px-2.5 sm:px-3 md:px-5 py-1.5 md:py-2 rounded-lg bg-primary text-primary-foreground text-[11px] sm:text-xs md:text-sm font-heading font-semibold hover:scale-105 transition-transform"
           >
             Register
           </a>
@@ -80,8 +90,9 @@ const Navbar = ({ onOpenRules }: NavbarProps) => {
           {/* MOBILE MENU BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-2 cursor-pointer touch-manipulation active:scale-95"
             aria-label="Menu"
+            type="button"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -89,38 +100,30 @@ const Navbar = ({ onOpenRules }: NavbarProps) => {
       </div>
 
       {/* MOBILE DROPDOWN */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
-          >
-            <div className="flex flex-col gap-2 p-4">
-              {navLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-
-                    const target = document.querySelector(l.href);
-                    if (target) {
-                      target.scrollIntoView({ behavior: "smooth" });
-                    }
-
-                    setOpen(false);
-                  }}
-                  className="text-sm font-heading font-medium text-muted-foreground hover:text-primary py-2 transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden bg-background/95 backdrop-blur-md border-b border-border"
+        >
+          <div className="flex flex-col gap-2 p-4">
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpen(false);
+                  requestAnimationFrame(() => scrollToSection(l.href));
+                }}
+                className="text-sm font-heading font-medium text-muted-foreground hover:text-primary active:text-primary py-2 transition-colors cursor-pointer touch-manipulation"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+      )}
     </nav>
   );
 };
