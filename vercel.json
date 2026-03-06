@@ -1,8 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/visionx/:path*",
-      "destination": "/:path*"
+      "source": "/visionx/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "source": "/visionx/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
