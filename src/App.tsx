@@ -21,13 +21,47 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [rulesOpen, setRulesOpen] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 1800); // loader duration
+  useEffect(() => {
+    document.documentElement.style.overflowX = "hidden";
+    document.body.style.overflowX = "hidden";
+    return () => {
+      document.documentElement.style.overflowX = "";
+      document.body.style.overflowX = "";
+    };
+  }, []);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+  useEffect(() => {
+    const allowedOrigins = new Set([
+      "http://localhost:5173",
+      "https://visionx-register.vercel.app",
+    ]);
+
+    const onMsg = (e: MessageEvent) => {
+      if (!allowedOrigins.has(e.origin)) return;
+      if (!e.data || e.data.type !== "IFRAME_MOUSEMOVE") return;
+
+      const iframe = document.getElementById(
+        "register-iframe",
+      ) as HTMLIFrameElement | null;
+      if (!iframe) return;
+      if (e.source !== iframe.contentWindow) return;
+
+      const rect = iframe.getBoundingClientRect();
+      const x = rect.left + e.data.x;
+      const y = rect.top + e.data.y;
+
+      window.dispatchEvent(
+        new MouseEvent("mousemove", {
+          clientX: x,
+          clientY: y,
+          bubbles: true,
+        }),
+      );
+    };
+
+    window.addEventListener("message", onMsg);
+    return () => window.removeEventListener("message", onMsg);
+  }, []);
 
   return (
     <>
@@ -44,7 +78,9 @@ function App() {
       <RulesModal open={rulesOpen} onClose={() => setRulesOpen(false)} />
 
       <QueryClientProvider client={queryClient}>
-        <SmoothTrailCursor />
+        <div className="pointer-events-none fixed inset-0 z-[2147483647]">
+          <SmoothTrailCursor />
+        </div>
         <TooltipProvider>
           <Toaster />
           <Sonner />
